@@ -1,28 +1,14 @@
 import React from 'react';
-import eBay from 'ebay-node-api';
-
-let ebay = new eBay({
-    clientID: process.env.REACT_APP_CLIENT_ID,
-    // options  - optional HTTP request timeout to apply to all requests.
-    env: "SANDBOX", // optional default = "PRODUCTION"
-    limit: 6
-})
 
 class SearchBar extends React.Component {
-    state={term:''};
+    
     onInputChange = (e)=>{
         this.setState({term:e.target.value})
     }
     onSearchSubmit = (e)=>{
-        e.preventDefault()
-        console.log(this.state.term)
-        ebay.findItemsByKeywords(this.state.term).then((data) => {
-            console.log(data); // fetches top 6 results in form of JSON.
-        }, (error) => {
-            console.log(error);
-        });
+        e.preventDefault();
+        this.props.onSearchSubmit(this.state.term)
     }
-        
     render(){
         return(
             <div>
@@ -47,4 +33,29 @@ class SearchBar extends React.Component {
 
 export default SearchBar
 
+//  componentDidMount() {
+//         window.navigator.geolocation.getCurrentPosition(
+//             async (position) => {
+//                 console.log(position)
+//                 this.setState({lat: position.coords.latitude});
+//                 this.setState({lng: position.coords.longitude});
+//              },
+//             (err) => { 
+//                  this.setState({errMessage: err.message});
+//              }
+//         )
+//     }    
  
+      
+//         axios.get('https://svcs.ebay.com/services/search/FindingService/v1?SECURITY-APPNAME=AsimSali-rightcho-PRD-379703086-c1b53a50&OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&RESPONSE-DATA-FORMAT=JSON&callback=_cb_findItemsByKeywords&REST-PAYLOAD&FILTER=price:[500-800]', {
+//     params: {
+//       keywords:'iPhone',
+//       entriesPerPage:6,
+//     }
+//   })
+//   .then(function (response) {
+//     console.log(response);
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });

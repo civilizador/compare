@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "ebay-node-api": "^2.5.4",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "xml-js": "^1.6.11"
   },
- "scripts": {
+  "scripts": {
     "start": "react-scripts start ",
     "build": "react-scripts build ",
     "test": "react-scripts test",
