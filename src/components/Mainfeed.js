@@ -4,7 +4,7 @@ import SingleItem from './SingleItem.js';
 const Mainfeed = ({ebayResults}) => {
     const allItems = ebayResults.map((item)=>{
             return (
-                <SingleItem item={item} />
+                <SingleItem key={Math.random()} item={item} />
                 )
             })
             

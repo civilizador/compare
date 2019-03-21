@@ -1,7 +1,13 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-    
+    state={term:''}
+    onPriceChange1 = (e) => {
+       this.props.onPrice1Change(e.target.value)
+    } 
+    onPriceChange2 = (e) => {
+        this.props.onPrice2Change(e.target.value)
+    } 
     onInputChange = (e)=>{
         this.setState({term:e.target.value})
     }
@@ -13,17 +19,29 @@ class SearchBar extends React.Component {
         return(
             <div>
                 <div className="jumbotron text-center">
-                    <h1>COMPARE</h1>
-                    <form onSubmit={this.onSearchSubmit} className="form-inline">
-                        <div className="input-group">
-                            <input className="form-control" size="50" 
-                                onChange={this.onInputChange} 
-                                value={this.term}/>
-                            <div className="input-group-btn">
-                                <button  className="btn btn-danger">Subscribe</button>
-                            </div>
-                        </div>
-                    </form>
+                    <div className="text-center">
+                        <h1>COMPARE</h1>
+                            <form onSubmit={this.onSearchSubmit} className="form-inline">
+                                <div className="input-group mx-auto">
+                                    <input className="form-control" size="80" 
+                                        onChange={this.onInputChange} 
+                                        value={this.term}/>
+                                    <div className="input-group-btn">
+                                        <button  className="btn btn-danger">Subscribe</button>
+                                    </div>
+                                </div>
+                            </form>
+                    </div>
+                <br />
+                    <div id='priceRange' className="input-group mx-auto">
+                          <div className="input-group-prepend">
+                            <span className="input-group-text">Price Range</span>
+                          </div>
+                          <input  onChange={this.onPriceChange1} 
+                                type="number" className="form-control"  />
+                          <input  onChange={this.onPriceChange2} 
+                                type="number" className="form-control" />
+                    </div>
                 </div>
             </div>
             )        
