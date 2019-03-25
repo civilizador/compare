@@ -4,7 +4,9 @@
     padding: 100px 25px;
     font-family: Montserrat, sans-serif;
 }
-
+.card {
+    cursor: pointer;
+}
 #priceRange {
     width: 25vw;
     color: black!important;

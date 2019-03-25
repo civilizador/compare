@@ -1,19 +1,19 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-    state={term:''}
+    state={term:'',price1:5,price2:1000}
     onPriceChange1 = (e) => {
-       this.props.onPrice1Change(e.target.value)
+        this.setState({price1:e.target.value}) 
     } 
     onPriceChange2 = (e) => {
-        this.props.onPrice2Change(e.target.value)
+        this.setState({price2:e.target.value})   
     } 
     onInputChange = (e)=>{
         this.setState({term:e.target.value})
     }
     onSearchSubmit = (e)=>{
         e.preventDefault();
-        this.props.onSearchSubmit(this.state.term)
+        this.props.onSearchSubmit(this.state.term,this.state.price1,this.state.price2)
     }
     render(){
         return(
