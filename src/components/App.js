@@ -20,7 +20,9 @@ let url;
    
 class App extends React.Component{
     state={country:'',lat:'',lng:'',ebayResults:[],selected:null}
-    
+    componentDidMount(){
+        this.onSearchSubmit('applewatch',1.00,999.00)
+    }
     onSearchSubmit = async (term,...price)=>{
         p2 = await `itemFilter(0).value=${price[0]}.00&`;
         p6 = await `itemFilter(1).value=${price[1]}.00&`;
@@ -37,6 +39,7 @@ class App extends React.Component{
         console.log(result1,newResult);
         
          this.setState({ebayResults:result1});
+         this.setState({selected:this.state.ebayResults[0]})
         })
         .catch(function (error) {
             console.log(error);
