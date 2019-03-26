@@ -1,6 +1,5 @@
 import React from 'react';
-import eBay from 'ebay-node-api';
-import axios from 'axios';
+ import axios from 'axios';
 import convert from 'xml-js';
 import SearchBar from './SearchBar'
 import Mainfeed from './Mainfeed'
